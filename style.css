@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-width: 100%;
+    max-width: 100vw;
 }
 
 header {
@@ -17,6 +17,12 @@ header {
     text-align: center;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+    box-sizing: border-box; 
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -27,6 +33,7 @@ header {
 .logo img {
     max-height: 150px; /* Adjust height as needed */
     width: auto;
+    max-width: fit-content;
 }
 
 nav ul {
@@ -59,6 +66,14 @@ main {
     width: 100%;
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px; /* Limit maximum width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0 20px; /* Add padding for the content */
+    box-sizing: border-box; /* Include padding in width */
+}
+
 .hero {
     background: linear-gradient(135deg, #FFE0E6 0%, #D4C8BE 100%); /* Light gradient background */
     text-align: center;
@@ -67,10 +82,12 @@ main {
     padding: 40px 20px;
     margin-bottom: 20px;
     width: 100%;
+    max-width: 1200px; /* Maximum width */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
     display: flex;
     align-items: center;
+    margin: 0 auto; /* Center the section */
+    box-sizing: border-box; /* Include padding and border in width and height */
 }
 
 .hero h2 {
@@ -106,6 +123,7 @@ main {
     margin-left: auto;
     margin-bottom: auto; /* Push the image to the right */
 }
+
 
 .categories {
     display: flex;
@@ -199,17 +217,6 @@ main {
     background-color: #0056b3;
 }
 
-/* Responsive Styles for product grid */
-@media (max-width: 768px) {
-    .category-products .product-card {
-        width: 150px; /* Adjust fixed width for smaller screens */
-        height: 250px; /* Adjust fixed height for smaller screens */
-    }
-
-    .category-products .product-card img {
-        max-height: 120px; /* Adjust max height for images on smaller screens */
-    }
-}
 
 .category-logo {
     display: flex; 
@@ -219,6 +226,18 @@ main {
 
 .category-logo img {
     max-height: 100px; /* Adjust the max-height as needed */
+}
+
+@media (max-width: 768px) {
+    .category-products .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust columns for smaller screens */
+        gap: 15px;
+        padding: 0 10px; /* Adjust padding */
+    }
+
+    .category-products .product-card {
+        max-width: 200px; /* Adjust maximum width of product cards */
+    }
 }
 
 .about {
@@ -243,21 +262,6 @@ main {
     line-height: 1.6;
     margin-bottom: 20px;
     color: #986C62; /* Accent text color */
-}
-
-/* Responsive Styles for About Us Section */
-@media (max-width: 768px) {
-    .about {
-        padding: 20px;
-    }
-
-    .about h2 {
-        font-size: 1.8em;
-    }
-
-    .about p {
-        font-size: 1em;
-    }
 }
 
 
@@ -338,10 +342,14 @@ footer {
     background: linear-gradient(135deg, #6E546C 0%, #986C62 100%); /* Dark gradient background */
     color: #FFFCFC; /* White text color */
     text-align: center;
-    padding: 10px;
-    font-size: 0.9em;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
     margin-top: auto;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better separation */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow: hidden;
 }
 
 footer .footer-content {
@@ -359,53 +367,4 @@ footer .footer-social ul {
 
 footer .footer-social ul li {
     display: inline-block;
-}
-
-/* Responsive Styles */
-
-@media (max-width: 768px) {
-    .hero {
-        padding: 20px;
-    }
-
-    .hero h2 {
-        font-size: 2em;
-    }
-
-    .hero p {
-        font-size: 1em;
-    }
-
-    .hero button {
-        padding: 10px 20px;
-        font-size:        0.8em;
-    }
-
-    .hero img {
-        height: 200px;
-    }
-
-    .feature {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .features {
-        padding: 10px;
-    }
-
-    .category-btn {
-        padding: 8px 16px;
-        font-size: 0.8em;
-    }
-
-    .product-card {
-        max-width: 150px;
-        padding: 5px;
-    }
-
-    .product-card img {
-        max-width: 100%;
-        height: auto;
-    }
 }
